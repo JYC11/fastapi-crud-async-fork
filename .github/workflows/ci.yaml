@@ -1,0 +1,63 @@
+name: fastapi-bug-tracker
+
+
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+permissions:
+  contents: read
+
+env:
+  STAGE: testing
+  WORKING_ON_PIPELINE: 'True'
+  POSTGRES_PASSWORD: 1234
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: 'postgres:latest'
+        env:
+          POSTGRES_USER: jason
+          POSTGRES_PASSWORD: 1234
+          POSTGRES_DB: hello_fastapi_dev
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 3
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+          cache: "pipenv"
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip pipenv
+          pipenv sync --dev
+      
+      - name: Lint tests + linting
+        run: |
+          pipenv run black . --check --line-length=120
+          pipenv run ruff check --exit-zero .
+     
+      - name: Mypy type checking
+        run: |
+          pipenv run mypy --check-untyped-defs -p app
+
+      - name: Test with pytest
+        run: |
+          pipenv run pytest

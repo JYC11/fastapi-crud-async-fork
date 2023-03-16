@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from app.api import notes, ping
-from app.db import database, engine, metadata
+from app.api import notes, ping  # type: ignore
+from app.db import database, engine, metadata  # type: ignore
 
 metadata.create_all(engine)
 

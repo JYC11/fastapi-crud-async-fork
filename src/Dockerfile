@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+
+#TODO: use pipenv instead
 # copy requirements file
 COPY ./requirements.txt /usr/src/app/requirements.txt
 

@@ -1,5 +1,5 @@
-from app.api.models import NoteSchema
-from app.db import notes, database
+from app.api.models import NoteSchema  # type: ignore
+from app.db import database, notes  # type: ignore
 
 
 async def post(payload: NoteSchema):
@@ -19,8 +19,7 @@ async def get_all():
 
 async def put(id: int, payload: NoteSchema):
     query = (
-        notes
-        .update()
+        notes.update()
         .where(id == notes.c.id)
         .values(title=payload.title, description=payload.description)
         .returning(notes.c.id)
