@@ -4,4 +4,4 @@ set -x
 
 ruff --fix .
 black . --line-length=120
-mypy --check-untyped-defs -p src.app
+mypy --check-untyped-defs -p app
