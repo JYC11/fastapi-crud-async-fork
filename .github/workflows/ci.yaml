@@ -56,7 +56,7 @@ jobs:
      
       - name: Mypy type checking
         run: |
-          pipenv run mypy --check-untyped-defs -p app
+          pipenv run mypy --check-untyped-defs -p src.app
 
       - name: Test with pytest
         run: |
