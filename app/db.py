@@ -2,9 +2,7 @@ from databases import Database
 from sqlalchemy import Column, DateTime, Integer, MetaData, String, Table, create_engine  # type: ignore
 from sqlalchemy.sql import func  # type: ignore
 
-from .settings import DBSettings
-
-db_settings = DBSettings()
+from .settings import db_settings
 
 DATABASE_URL = db_settings.url
 

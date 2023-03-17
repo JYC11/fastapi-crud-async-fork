@@ -1,4 +1,4 @@
-from pydantic import BaseSettings, SecretStr, Field
+from pydantic import BaseSettings, Field, SecretStr
 
 
 class DBSettings(BaseSettings):
@@ -19,3 +19,6 @@ class DBSettings(BaseSettings):
     class Config:
         env_prefix = "postgres_"
         env_file = ".env"
+
+
+db_settings = DBSettings()  # type: ignore

@@ -9,6 +9,8 @@ WORKDIR /app
 
 ADD . /app/
 
+RUN rm .env
+
 RUN pip install pipenv
 
 RUN pipenv sync
