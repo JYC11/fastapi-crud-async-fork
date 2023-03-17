@@ -1,8 +1,8 @@
-from pydantic import BaseSettings, Field, SecretStr
+from pydantic import BaseSettings, SecretStr
 
 
 class DBSettings(BaseSettings):
-    server: str = Field(..., env="POSTGRES_SERVER")
+    server: str = "localhost"
     user: str = "jason"
     password: SecretStr = SecretStr("")
     db: str = "hello_fastapi_dev"
@@ -21,4 +21,4 @@ class DBSettings(BaseSettings):
         env_file = ".env"
 
 
-db_settings = DBSettings()  # type: ignore
+db_settings = DBSettings()
