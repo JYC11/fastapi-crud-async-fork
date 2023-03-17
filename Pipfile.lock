@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8f76dc9c5c93482ca72863afa6d1adee34d03f1b2ace0ecb7379006f78331527"
+            "sha256": "e5cfb2bfbc9fdf7d13b35f57e4ea4933bd9327438e120c6c8e6e2c8840498e4d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -186,6 +186,9 @@
             "version": "==2.9.5"
         },
         "pydantic": {
+            "extras": [
+                "dotenv"
+            ],
             "hashes": [
                 "sha256:012c99a9c0d18cfde7469aa1ebff922e24b0c706d03ead96940f5465f2c9cf62",
                 "sha256:0abd9c60eee6201b853b6c4be104edfba4f8f6c5f3623f8e1dba90634d63eb35",
@@ -226,6 +229,13 @@
             ],
             "index": "pypi",
             "version": "==1.10.6"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba",
+                "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"
+            ],
+            "version": "==1.0.0"
         },
         "sniffio": {
             "hashes": [
@@ -300,11 +310,11 @@
         },
         "uvicorn": {
             "hashes": [
-                "sha256:8635a388062222082f4b06225b867b74a7e4ef942124453d4d1d1a5cb3750932",
-                "sha256:e69e955cb621ae7b75f5590a814a4fcbfb14cb8f44a36dfe3c5c75ab8aee3ad5"
+                "sha256:0fac9cb342ba099e0d582966005f3fdba5b0290579fed4a6266dc702ca7bb032",
+                "sha256:e47cac98a6da10cd41e6fd036d472c6f58ede6c5dbee3dbee3ef7a100ed97742"
             ],
             "index": "pypi",
-            "version": "==0.21.0"
+            "version": "==0.21.1"
         }
     },
     "develop": {
@@ -504,7 +514,6 @@
                 "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba",
                 "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"
             ],
-            "markers": "python_version >= '3.8'",
             "version": "==1.0.0"
         },
         "rfc3986": {
